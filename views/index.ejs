@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="Aaron Bieber <qbit@deftly.net>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%- title + ' - ' + version %></title>
+
+	<script src="components/jquery/jquery.js"></script>
+	<script src="components/semantic/build/packaged/javascript/semantic.min.js"></script>
+
+	<link href="components/semantic/build/packaged/css/semantic.min.css" rel="stylesheet">
+	<link href="stroke.css" rel="stylesheet">
+</head>
+<body>
+	<div class="ui pointing secondary menu">
+	  <a class="active green item" data-tab="game">Game</a>
+	  <a class="blue item" data-tab="score">Score</a>
+	  <a class="blue item right">Players <div class="ui label"><%- users %></div></a>
+	</div>
+	<div class="ui active tab segment" data-tab="game">
+	</div>
+	<div class="ui tab segment" data-tab="score">Scores</div>
+</body>
+</html>
+
