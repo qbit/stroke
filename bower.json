@@ -1,0 +1,27 @@
+{
+  "name": "stroke",
+  "version": "0.0.1",
+  "homepage": "https://github.com/qbit/stroke",
+  "authors": [
+    "Aaron Bieber <deftly@gmail.com>"
+  ],
+  "description": "A competitive multi-player VI game",
+  "main": "app.js",
+  "keywords": [
+    "vim",
+    "game",
+    "multi-player"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}
