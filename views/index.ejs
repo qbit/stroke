@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><%- title + ' - ' + version %></title>
 
+	<script src="/socket.io/socket.io.js"></script>
+
 	<script src="components/jquery/jquery.js"></script>
 	<script src="components/semantic/build/packaged/javascript/semantic.min.js"></script>
 	<script src="CodeMirror/lib/codemirror.js"></script>
@@ -22,12 +24,17 @@
 	<div class="ui pointing secondary menu">
 	  <a class="active green item" data-tab="game">Game</a>
 	  <a class="blue item" data-tab="score">Score</a>
-	  <a class="blue item right">Players <div class="ui label"><%- users %></div></a>
+	  <a class="blue item right">Players <div class="ui label" id="counter"><%- users %></div></a>
 	</div>
 	<div class="ui active tab segment" data-tab="game" id="game">
 	</div>
 	<div class="ui tab segment" data-tab="score">Scores</div>
 	<script>
+		var socket = io.connect();
+		socket.on('players', function(d) {
+			console.log(d);
+			$('#counter').text(d);
+		});
 		var editor = CodeMirror(document.getElementById('game'), {
 			vimMode: true,
 			showCursorWhenSelecting: true,
