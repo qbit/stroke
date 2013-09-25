@@ -22,17 +22,15 @@ app.locals.users = 0;
 app.locals.version = '0.0.1';
 
 io.sockets.on('connection', function(socket) {
-	if (!users[socket.id]) {
-		users[socket.id] = true;
-		io.sockets.emit('players', app.locals.users++);
-	}
-});
 
-io.sockets.on('disconnect', function(socket){
-	console.log(socket.id);
-	app.locals.users--;
-});
+	app.locals.users++;
 
+	io.sockets.emit('players', app.locals.users);
+	socket.on('disconnect', function() {
+		app.locals.users--;
+		io.sockets.emit('players', app.locals.users);
+	});
+});
 app.get('/', function(req,res) {
 	res.render('index');
 });
