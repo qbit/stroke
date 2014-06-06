@@ -3,7 +3,7 @@ stroke
 
 A competitive multi-player VI game
 
-== installation ==
+**installation**
 
     git clone https://github.com/qbit/stroke.git
     cd stroke
