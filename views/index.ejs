@@ -35,6 +35,7 @@
 	</div>
 	<div class="ui active tab segment" data-tab="game" id="game">
 	</div>
+	<button id="ready">Ready!</button>
 	<div class="ui tab segment" data-tab="score">Scores</div>
 	<script>
 		var socket = io.connect();
@@ -49,6 +50,10 @@
 			mode: "text/x-csrc",
 			showCursorWhenSelecting: true,
 			lineNumbers: true
+		});
+		
+		$('#ready').click(function() {
+		    socket.emit('player_ready', 'start');
 		});
 	</script>
 </body>
