@@ -34,12 +34,12 @@ io.sockets.on('connection', function(socket) {
     app.locals.users++;
 
     io.sockets.emit('players', app.locals.users);
-    
+
     socket.on('disconnect', function() {
 	app.locals.users--;
 	io.sockets.emit('players', app.locals.users);
     });
-    
+
     socket.on('player_ready', function(a) {
 	app.locals.user_queue.push(this.id);
 	if (app.locals.user_queue.length === 2) {
