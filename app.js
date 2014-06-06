@@ -8,10 +8,9 @@ port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
 host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.logger());
-app.use(express.cookieParser(process.env.SECRET || 'omgdev'));
-app.use(express.cookieSession(process.env.SECRET || 'omgdev'));
-app.use(express.compress());
+//app.use(express.cookieParser(process.env.SECRET || 'omgdev'));
+//app.use(express.cookieSession(process.env.SECRET || 'omgdev'));
+//app.use(express.compress());
 
 app.set('view engine', 'ejs');
 
@@ -27,6 +26,7 @@ io.sockets.on('connection', function(socket) {
 
 	io.sockets.emit('players', app.locals.users);
 	socket.on('disconnect', function() {
+	    console.log('disconnect');
 		app.locals.users--;
 		io.sockets.emit('players', app.locals.users);
 	});
